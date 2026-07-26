@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>counter web</title>
+    <style>
+      body {
+        background:linear-gradient( to top, skyblue, violet);
+        text-align:center;
+      }
+      h1 {
+        color :black;
+        font-size: 40px;
+      }
+      p {
+        color :red;
+        font-size: 100px;
+      }
+      div {
+        text-align: center;
+      }
+      .btn {
+        color :green;
+        background-color: lightblue;
+        padding:20px;
+          border-radius :40px;
+          font-size: 20px;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <p id = "score">0</p>
+   
+    <div>
+  <button onclick = "resetScore()"class = "btn">Reset
+     </button><button onclick = "addScore()" class = "btn">Click</button>
+     <button onclick = "doubleScore()" class = "btn">Double Click</button>
+     <button onclick = "tripleScore()" class = "btn">Triple Click</button>
+    </div>
+     
+     <script>
+       
+      let score = 0;
+       let colors = [
+         "red",
+         "green",
+         "blue",
+         "black",
+         "white",
+         "yellow",
+         "purple",
+         "violet",
+         "pink"];
+         let clickSound = new Audio ("click.mp3");
+         
+         function updateScore(){
+          document.getElementById("score").innerHTML = score;
+          document.getElementById("score").style.color = colors[score% colors.length];
+          clickSound.currentTime = 0;
+          clickSound.play();
+         }
+         
+          function resetScore(){
+         score = 0;
+         updateScore();
+       }
+       
+       function addScore(){
+         score = score + 1;
+         updateScore();
+       }
+         
+         function doubleScore(){
+           score = score + 2;
+           updateScore();
+         }
+
+         function tripleScore(){
+           score = score + 3;
+           updateScore();
+            
+        
+         }
+ </script>
+  </body>
+</html>
